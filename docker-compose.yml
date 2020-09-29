@@ -6,7 +6,7 @@ services:
             - PGPASSWORD=postgres_password
     redis:
         image: 'redis:latest'
-    server: 
+    api: 
         restart: always
         build: 
             context: ./server
