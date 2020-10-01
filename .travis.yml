@@ -5,3 +5,14 @@ service:
 
 before_install:
     - docker build -t roryr2l/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+    - docker run -e CI=true roryr2l/react-test npm run test
+
+after_success:
+    - docker build -t roryr2l/multi-client ./client
+    - docker build -t roryr2l/multi-worker ./worker
+    - docker build -t roryr2l/multi-server ./server
+    - docker build -t roryr2l/multi-nginx ./nginx
+    # Take these images and push them to docker hub
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
