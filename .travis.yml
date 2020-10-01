@@ -1,0 +1,7 @@
+language: generic
+sudo: required
+service: 
+    - docker
+
+before_install:
+    - docker build -t roryr2l/react-test -f ./client/Dockerfile.dev ./client
