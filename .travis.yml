@@ -16,3 +16,7 @@ after_success:
     - docker build -t roryr2l/multi-nginx ./nginx
     # Take these images and push them to docker hub
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    - docker push roryr2l/multi-client
+    - docker push roryr2l/multi-worker
+    - docker push roryr2l/multi-server
+    - docker push roryr2l/multi-nginx
