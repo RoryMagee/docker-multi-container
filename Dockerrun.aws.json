@@ -1,6 +1,29 @@
 {
     "AWSEBDockerrunVersion": 2,
     "containerDefinitions": [
-
+        {
+            "name": "client",
+            "image": "roryr2l/multi-client",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name": "server",
+            "image": "roryr2l/multi-server",
+            "hostname": "api",
+            "essential": false
+        },
+        {
+            "name": "worker",
+            "image": "roryr2l/multi-worker",
+            "hostname": "worker",
+            "essential": false
+        },
+        {
+            "name": "nginx",
+            "image": "roryr2l/multi-nginx",
+            "hostname": "nginx",
+            "essential": true
+        }
     ]
 }
