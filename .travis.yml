@@ -22,7 +22,6 @@ after_success:
     - docker push roryr2l/multi-nginx
 
 deploy:
-    edge: true
     provider: elasticbeanstalk
     region: "eu-west-2"
     name: "multi-docker"
